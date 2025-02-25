@@ -15,10 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // 🎵 Sett lydene til å loope
-    Object.values(sounds).forEach((audio) => {
-        audio.loop = true;
-        audio.volume = 0.5;
-    });
+Object.entries(sounds).forEach(([key, audio]) => {
+    audio.loop = true;
+    audio.volume = (key === 'joakim') ? 1.0 : 0.3;  // 🎚 Joakim-lyden på maks volum (1.0), andre på 0.5
+});
+
 
     const stopAllAudio = () => {
         Object.values(sounds).forEach((audio) => {
