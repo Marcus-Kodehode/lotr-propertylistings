@@ -4,22 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButtons = document.querySelectorAll(".close-btn");
     const propertyContainer = document.querySelector(".property-container");
 
-    // 🎵 Lydfiler for hver kategori
+    // 🎵 Lydfiler for hver kategori inkludert Joakim's Junkyard Keep
     const sounds = {
         dark: new Audio("sounds/evil.mp3"),
         hobbit: new Audio("sounds/good.mp3"),
         elven: new Audio("sounds/forest.mp3"),
         kingdoms: new Audio("sounds/river.mp3"),
-        dwarven: new Audio("sounds/good.mp3") // Midlertidig lyd for dwarven
+        dwarven: new Audio("sounds/river.mp3"),
+        joakim: new Audio("sounds/joakim.mp3") // 🔊 Egen lyd for Joakim's Junkyard Keep
     };
 
-    // 🔄 🎵 Sett lydene til å loope og juster volum
+    // 🎵 Sett lydene til å loope
     Object.values(sounds).forEach((audio) => {
         audio.loop = true;
         audio.volume = 0.5;
     });
 
-    // 🔇 Stopper all lyd
     const stopAllAudio = () => {
         Object.values(sounds).forEach((audio) => {
             audio.pause();
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // 🎬 Åpner modal, spiller lyd og fader bakgrunn
+    // 🎬 Åpne modal og spill riktig lyd
     detailButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const modalId = btn.parentElement.getAttribute("data-modal");
@@ -36,22 +36,26 @@ document.addEventListener("DOMContentLoaded", () => {
             if (modal) {
                 modal.style.display = "flex";
                 propertyContainer.classList.add("faded");
-                stopAllAudio(); // Stopper eventuell lyd som spiller
+                stopAllAudio();
 
-                // 🎵 Spiller riktig lyd basert på kategori
+                // 🎵 Spill av lyd basert på klasse eller ID
                 const categories = ["dark", "hobbit", "elven", "kingdoms", "dwarven"];
-                categories.forEach((category) => {
-                    if (btn.parentElement.classList.contains(category)) {
-                        sounds[category].play();
-                    }
-                });
+                if (btn.parentElement.classList.contains("joakim")) {
+                    sounds.joakim.play(); // 🎶 Spiller Joakim-lyden
+                } else {
+                    categories.forEach((category) => {
+                        if (btn.parentElement.classList.contains(category)) {
+                            sounds[category].play();
+                        }
+                    });
+                }
             } else {
                 console.error(`Modal with ID "${modalId}" not found.`);
             }
         });
     });
 
-    // ❌ Lukk modal + stopp lyd + fjern fade
+    // ❌ Lukk modal og stopp lyd
     closeButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             btn.closest(".modal").style.display = "none";
@@ -68,29 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 📜 Filterfunksjon for eiendommer + 🏗 Dynamisk størrelse
+    // 📜 Filterfunksjon for eiendommer
     document.getElementById('filter-select').addEventListener('change', function () {
         const selectedCategory = this.value;
         const properties = document.querySelectorAll('.property-card');
 
         properties.forEach((property) => {
             if (selectedCategory === 'all' || property.classList.contains(selectedCategory)) {
-                property.style.display = 'flex';  // Beholder flex-layouten for riktig formatering
+                property.style.display = 'flex';
             } else {
                 property.style.display = 'none';
             }
         });
-
-        const visibleProperties = Array.from(properties).filter(
-            (property) => property.style.display === 'flex'
-        );
-
-        // 🎯 ✅ Riktig størrelse når kun 1 annonse vises
-        if (visibleProperties.length === 1) {
-            visibleProperties[0].classList.add("single-item");
-        } else {
-            visibleProperties.forEach((item) => item.classList.remove("single-item"));
-        }
     });
 });
+
 
