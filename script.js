@@ -10,8 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
         hobbit: new Audio("sounds/good.mp3"),
         elven: new Audio("sounds/forest.mp3"),
         kingdoms: new Audio("sounds/river.mp3"),
-        dwarven: new Audio("sounds/river.mp3") // Hvis du legger til dwarven senere
+        dwarven: new Audio("sounds/good.mp3")// Hvis du legger til dwarven senere
     };
+    Object.entries(sounds).forEach(([key, audio]) => {
+        audio.addEventListener('canplaythrough', () => {
+            console.log(`${key} lydfilen er klar.`);
+        }, false);
+        audio.addEventListener('error', () => {
+            console.error(`Feil under lasting av lydfil for ${key}.`);
+        });
+    });
+    
 
     // 🎵 Sett lydene til å loope
     Object.values(sounds).forEach((audio) => {

@@ -28,6 +28,14 @@ header p {
 }
 
 /* 🎨 Filter-meny i høyre hjørne */
+.filter-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .filter-container select {
     padding: 5px 10px;
     border-radius: 5px;
