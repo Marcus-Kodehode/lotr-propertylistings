@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties in Middle-earth</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <header>
+        <h1>🏡 Locations in Middle-earth 🏡</h1>
+        <p>Explore iconic locations from <strong>J.R.R. Tolkien's</strong> universe.</p>
+        <div class="filter-container">
+            <label for="filter-select">Filter by category:</label>
+            <select id="filter-select">
+                <option value="all">All Locations</option>
+                <option value="elven">Elven Realms</option>
+                <option value="dwarven">Dwarven Cities</option>
+                <option value="dark">Dark Fortresses</option>
+                <option value="hobbit">Hobbit Homes</option>
+                <option value="kingdoms">Lost Kingdoms</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="property-container">
+ <!-- 🏡 Bag End (Hobbit Home) -->
+<div class="property-card hobbit" data-modal="modal-bagend">
+    <img src="images/bagend.webp" alt="Bag End - Hobbiton">
+    <h2>Bag End</h2>
+    <p>A cozy hobbit-hole with a picturesque view over <strong>Hobbiton</strong>.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🏰 Barad-dûr (Dark Fortress) -->
+<div class="property-card dark" data-modal="modal-baradur">
+    <img src="images/baradur.webp" alt="Barad-dûr - Sauron's Tower">
+    <h2>Barad-dûr</h2>
+    <p>A dark and powerful fortress looming over <strong>Mordor</strong>.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🌳 Lothlórien (Elven Realm) -->
+<div class="property-card elven" data-modal="modal-lothlorien">
+    <img src="images/lotlorien.webp" alt="Lothlórien - The Elven Forest">
+    <h2>Lothlórien</h2>
+    <p>A peaceful woodland realm, where time itself seems to hold its breath.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- ❄ Caras Galadhon (Elven Realm) -->
+<div class="property-card elven" data-modal="modal-caras">
+    <img src="images/caras.webp" alt="Caras Galadhon - Galadriel's City">
+    <h2>Caras Galadhon</h2>
+    <p>The radiant city of <strong>Galadriel</strong>, nestled within the <em>mallorn</em> trees.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🌋 Mount Doom (Dark Fortress) -->
+<div class="property-card dark" data-modal="modal-mountdoom">
+    <img src="images/mountdoom.webp" alt="Mount Doom - Orodruin">
+    <h2>Mount Doom</h2>
+    <p>The very fires where the <em>One Ring</em> was forged.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🏞 Rivendell (Elven Realm) -->
+<div class="property-card elven" data-modal="modal-rivendell">
+    <img src="images/rivendel.webp" alt="Rivendell - Elrond's Refuge">
+    <h2>Rivendell</h2>
+    <p>A hidden sanctuary of wisdom and song.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🌊 Númenor (Lost Kingdom) -->
+<div class="property-card kingdoms" data-modal="modal-numenor">
+    <img src="images/numenor.webp" alt="Númenor - Island of Kings">
+    <h2>Númenor</h2>
+    <p>The lost kingdom of Men, now swallowed by the sea.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🏔 Gondolin (Lost Kingdom) -->
+<div class="property-card kingdoms" data-modal="modal-gondolin">
+    <img src="images/gondolin.webp" alt="Gondolin - The Hidden City">
+    <h2>Gondolin</h2>
+    <p>The secret city of the Elves, hidden in the Encircling Mountains.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+<!-- 🏴 Angband (Dark Fortress) -->
+<div class="property-card dark" data-modal="modal-angband">
+    <img src="images/angband.webp" alt="Angband - Morgoth's Fortress">
+    <h2>Angband</h2>
+    <p>The dread fortress of <strong>Morgoth</strong>, the first Dark Lord.</p>
+    <button class="details-btn">View Details</button>
+</div>
+
+
+    <!-- 📜 Modal Windows with Detailed Lore for ALL properties -->
+
+    <!-- Bag End -->
+    <div id="modal-bagend" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Bag End - Hobbiton</h2>
+            <p><strong>Bag End</strong> rests atop the gentle hills of <strong>The Shire</strong>, a warm and welcoming home carved into the earth.</p>
+            <p>It was here that <strong>Bilbo</strong> and <strong>Frodo Baggins</strong> dwelled, and where the journey to destroy the <em>One Ring</em> began.</p>
+            <p>The round green door, well-tended gardens, and comfortable rooms reflect the simple joys of hobbit life—free from the shadows that plague Middle-earth.</p>
+            <blockquote><em>“It’s a dangerous business, Frodo, going out your door.”</em>  
+            — <strong>The Fellowship of the Ring</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Barad-dûr -->
+    <div id="modal-baradur" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Barad-dûr - The Dark Tower</h2>
+            <p><strong>Barad-dûr</strong>, the <em>Dark Tower</em>, rises with grim majesty in the desolate heart of <strong>Mordor</strong>.</p>
+            <p>Forged with the power of the <em>One Ring</em>, it symbolizes the will and malice of <strong>Sauron</strong>.</p>
+            <p>Its unblinking Eye watches for the Ring-bearer, seeking dominion over all free peoples of Middle-earth.</p>
+            <blockquote><em>“There is only one Lord of the Ring, and he does not share power.”</em>  
+            — <strong>The Fellowship of the Ring</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Lothlórien -->
+    <div id="modal-lothlorien" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Lothlórien - The Golden Wood</h2>
+            <p><strong>Lothlórien</strong>, ruled by <strong>Galadriel</strong> and <strong>Celeborn</strong>, is a realm where time seems to hold its breath.</p>
+            <p>The golden leaves of the <em>mallorn</em> trees shimmer in eternal spring, and the air is filled with the quiet wisdom of the Eldar.</p>
+            <p>It stands as a last vestige of the beauty of the Elves in Middle-earth.</p>
+            <blockquote><em>“Do not let your hearts be troubled. Tonight you shall sleep in peace.”</em>  
+            — <strong>The Fellowship of the Ring</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Caras Galadhon -->
+    <div id="modal-caras" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Caras Galadhon - Heart of Lothlórien</h2>
+            <p><strong>Caras Galadhon</strong>, the city of <strong>Galadriel</strong>, gleams with silver lights among the tall <em>mallorn</em> trees.</p>
+            <p>The city is a place of wisdom, beauty, and power—where the Lady of Light gazes into her Mirror and contemplates the fate of Middle-earth.</p>
+            <blockquote><em>“Even the smallest person can change the course of the future.”</em>  
+            — <strong>The Fellowship of the Ring</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Mount Doom -->
+    <div id="modal-mountdoom" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Mount Doom - Orodruin</h2>
+            <p><strong>Mount Doom</strong>, or <em>Orodruin</em>, is the fiery mountain where <strong>Sauron</strong> forged the <em>One Ring</em>.</p>
+            <p>The only place where the Ring can be unmade, its fires burn with the will of the Dark Lord.</p>
+            <blockquote><em>“The Ring is treacherous. It will hold you to its will.”</em>  
+            — <strong>The Return of the King</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Rivendell -->
+    <div id="modal-rivendell" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Rivendell - The Last Homely House</h2>
+            <p><strong>Rivendell</strong>, or <em>Imladris</em>, is a haven of rest and healing, founded by <strong>Elrond</strong>.</p>
+            <p>Here, knowledge of the past is preserved, and the Fellowship of the Ring was formed to undertake the quest to destroy the Ring.</p>
+            <blockquote><em>“The road goes ever on and on, down from the door where it began.”</em>  
+            — <strong>The Hobbit</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Númenor -->
+    <div id="modal-numenor" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Númenor - The Isle of Kings</h2>
+            <p><strong>Númenor</strong>, gifted to Men by the <strong>Valar</strong>, rose with majestic towers above the western seas.</p>
+            <p>But pride and the desire for immortality led to its downfall, as the island was swallowed by the sea in a great cataclysm.</p>
+            <blockquote><em>“The world has changed. I feel it in the water.”</em>  
+            — <strong>The Fellowship of the Ring</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Gondolin -->
+    <div id="modal-gondolin" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Gondolin - The Hidden City</h2>
+            <p><strong>Gondolin</strong>, the secret city of <strong>Turgon</strong>, stood gleaming in the Encircling Mountains.</p>
+            <p>Its white towers echoed with elven song, a wonder of craft and beauty hidden from the eyes of <strong>Morgoth</strong>.</p>
+            <p>Betrayal brought its ruin, but its memory endures as a legend among Elves and Men.</p>
+            <blockquote><em>“There lies the fastness of the Elves. It is a city of song and light.”</em>  
+            — <strong>The Silmarillion</strong></blockquote>
+        </div>
+    </div>
+
+    <!-- Angband -->
+    <div id="modal-angband" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Angband - Morgoth's Fortress</h2>
+            <p><strong>Angband</strong>, the Iron Prison, was the throne of <strong>Morgoth</strong>, the first Dark Lord.</p>
+            <p>Deep beneath <strong>Thangorodrim</strong>, Morgoth bred legions of orcs, dragons, and balrogs, spreading terror across Beleriand.</p>
+            <p>Here, he brooded over his vengeance against the Valar and the Children of Ilúvatar.</p>
+            <blockquote><em>“There in the deep chambers of Angband, Morgoth brooded on his vengeance.”</em>  
+            — <strong>The Silmarillion</strong></blockquote>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
