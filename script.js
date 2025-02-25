@@ -4,7 +4,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButtons = document.querySelectorAll(".close-btn");
     const propertyContainer = document.querySelector(".property-container");
 
-    // 📜 Åpne popup-vindu
+    // 🎵 Lydfiler for hver kategori
+    const sounds = {
+        dark: new Audio("sounds/evil.mp3"),
+        hobbit: new Audio("sounds/good.mp3"),
+        elven: new Audio("sounds/forest.mp3"),
+        kingdoms: new Audio("sounds/river.mp3"),
+        dwarven: new Audio("sounds/river.mp3") // Hvis du legger til dwarven senere
+    };
+
+    // 🎵 Sett lydene til å loope
+    Object.values(sounds).forEach((audio) => {
+        audio.loop = true;
+        audio.volume = 0.5;
+    });
+
+    const stopAllAudio = () => {
+        Object.values(sounds).forEach((audio) => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+    };
+
+    // 🎬 Åpne modal og spill riktig lyd
     detailButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const modalId = btn.parentElement.getAttribute("data-modal");
@@ -13,17 +35,27 @@ document.addEventListener("DOMContentLoaded", () => {
             if (modal) {
                 modal.style.display = "flex";
                 propertyContainer.classList.add("faded");
+                stopAllAudio();
+
+                // 🎵 Spill av lyd basert på klasse
+                const categories = ["dark", "hobbit", "elven", "kingdoms", "dwarven"];
+                categories.forEach((category) => {
+                    if (btn.parentElement.classList.contains(category)) {
+                        sounds[category].play();
+                    }
+                });
             } else {
                 console.error(`Modal with ID "${modalId}" not found.`);
             }
         });
     });
 
-    // 📜 Lukke popup-vindu
+    // ❌ Lukk modal og stopp lyd
     closeButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             btn.closest(".modal").style.display = "none";
             propertyContainer.classList.remove("faded");
+            stopAllAudio();
         });
     });
 
@@ -31,27 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target.classList.contains("modal")) {
             e.target.style.display = "none";
             propertyContainer.classList.remove("faded");
+            stopAllAudio();
         }
     });
 
-// 📜 Filterfunksjon for eiendommer
-document.getElementById('filter-select').addEventListener('change', function () {
-    const selectedCategory = this.value;
-    const properties = document.querySelectorAll('.property-card');
+    // 📜 Filterfunksjon for eiendommer
+    document.getElementById('filter-select').addEventListener('change', function () {
+        const selectedCategory = this.value;
+        const properties = document.querySelectorAll('.property-card');
 
-    properties.forEach((property) => {
-        if (selectedCategory === 'all' || property.classList.contains(selectedCategory)) {
-            property.style.display = 'flex';  // 'flex' for å beholde lik layout
-            property.style.width = '300px';   // 🔥 Sørger for korrekt bredde
-            property.style.height = '400px';  // 🔥 Sørger for korrekt høyde
-        } else {
-            property.style.display = 'none';
-        }
+        properties.forEach((property) => {
+            if (selectedCategory === 'all' || property.classList.contains(selectedCategory)) {
+                property.style.display = 'flex';
+            } else {
+                property.style.display = 'none';
+            }
+        });
     });
-});
-});
-
-
-
-
-  
+});  

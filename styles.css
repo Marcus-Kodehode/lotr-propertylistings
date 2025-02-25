@@ -28,15 +28,23 @@ header p {
 }
 
 /* 🎨 Filter-meny i høyre hjørne */
-.filter-container {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.filter-container select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(236, 239, 244, 0.5);
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 .filter-container label {
     color: #ECEFF4;
     font-weight: 600;
